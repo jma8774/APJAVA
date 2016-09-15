@@ -8,5 +8,7 @@ package intro_unit;
  *
  */
 public class ProceduralExample {
-
+  public static void main(string[]args){
+    System.out.println("sup world");
+  }
 }
