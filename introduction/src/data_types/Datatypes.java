@@ -1,8 +1,9 @@
 package data_types;
 
-public class datatypes {
+public class Datatypes {
 
 	public static void main(String[] args) {
+		// Task
 		System.out.println(5.0/2);
 		System.out.println((double) 5/2);
 		System.out.println(5/2);
@@ -16,6 +17,19 @@ public class datatypes {
 		// returns 0 because int can only display whole numbers, and 8/14 is not a whole number
 		// its all because of their data type, you have to change it to match whatever answer you need
 		if(42 == 42.0) System.out.println("42 equals 42.0");
+		
+		// Test Precision
+		double d1 = 4.64; 
+		double d2 = 2.0;
+		double d3 = 2.64;
+
+		System.out.println("d1 : " + d1); 
+		System.out.println("d2 : " + d2); 
+		System.out.println("d3 : " + d3);  
+		System.out.println("d1 - d2 : " + (d1 - d2));
+		// it probably has something to do with the way binary numbers work, they are both double so idk why
+		
+		
 	}
 
 }
