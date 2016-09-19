@@ -13,6 +13,7 @@ public class datatypes {
 		// it is different because if 5 is not doubled, then 5/2 wouldn't return 2.5
 		// instead it would return 2
 		System.out.println((int)(3.0 + 5)/(2 + 5 * 2));
+		// returns 0 because int can only display whole numbers, and 8/14 is not a whole number
 		// its all because of their data type, you have to change it to match whatever answer you need
 		if(42 == 42.0) System.out.println("42 equals 42.0");
 	}
