@@ -28,8 +28,13 @@ public class Datatypes {
 		System.out.println("d3 : " + d3);  
 		System.out.println("d1 - d2 : " + (d1 - d2));
 		// it probably has something to do with the way binary numbers work, they are both double so idk why
+	
+		String ten="3";
+		String two="2 ";
+		if(ten.compareTo(two)>0) System.out.println("10 is bigger than 2");
+		else System.out.println("10 is not greater than 2");
 		
-		
+		// cannot access superclass through subclass
 	}
 
 }
