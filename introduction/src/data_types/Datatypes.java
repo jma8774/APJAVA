@@ -35,6 +35,7 @@ public class Datatypes {
 		else System.out.println("10 is not greater than 2");
 		
 		// cannot access superclass through subclass
+
 	}
 
 }
