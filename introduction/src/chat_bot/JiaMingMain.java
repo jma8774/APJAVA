@@ -24,9 +24,9 @@ public class JiaMingMain {
 	public static void talkForever(){
 		inLoop=true;
 		while(inLoop){
-			print("Greetings, " + user + ". How are you?");
+			print("Greetings, " + user + ". How are you? What's up?");
 			response = getInput();
-			if(response.indexOf("good")>=0){
+			if(findKeyword(response, "good", 0)){
 				print("I'm so happy you're good.");
 				}else if(response.indexOf("school")>=0){
 					inLoop = false;
@@ -38,6 +38,28 @@ public class JiaMingMain {
 		}
 	}
 	
+	public static boolean findKeyword(String searchString, String key, int startIndex) {
+		String phrase = searchString.trim(); // returns a copy of the string, removes white spaces
+		phrase = phrase.toLowerCase(); // makes the string lower case
+		key = key.toLowerCase();
+		int psn = phrase.indexOf(key); // psn = position
+		while(psn>=0){ // to check if the key word exists
+			String before = " ";
+			String after = " ";
+			if(psn + key.length() < phrase.length()){
+				after = phrase.substring(psn + key.length(), psn + key.length() + 1).toLowerCase();
+			}
+			if(psn>0){
+				before = phrase.substring(psn-1,psn).toLowerCase();
+			}
+			if(before.compareTo("a")<0 && after.compareTo("a")<0){
+				return true;
+			}
+			psn = phrase.indexOf(key,psn+1);
+		}
+		return false;
+	}
+
 	public static void createTopic(){
 		input = new Scanner(System.in);
 		school = new School();
@@ -66,9 +88,4 @@ public class JiaMingMain {
 		}
 		System.out.println(printString);
 	}
-	
-	private static int indexOf(String string) {
-		return 0;
-	}
-
 }
