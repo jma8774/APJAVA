@@ -8,6 +8,7 @@ public class JiaMingMain {
 	static boolean inLoop;
 	static String response;
 	static Topic school;
+	static Topic like;
 	
 	public static void main(String[] args) {
 		createTopic();
@@ -26,43 +27,68 @@ public class JiaMingMain {
 		while(inLoop){
 			print("Greetings, " + user + ". How are you? What's up?");
 			response = getInput();
-			if(findKeyword(response, "good", 0)){
+			if(findKeyword(response, "good", 0)>=0){
 				print("I'm so happy you're good.");
-				}else if(response.indexOf("school")>=0){
+				}else if(findKeyword(response, "school", 0)>=0){
 					inLoop = false;
 					school.talk();
-				}
-					else{
-						print("I'm sorry, I don't understand you");
+					}else if(findKeyword(response, "like", 0)>=0){
+						inLoop = false;
+						like.talk();
 					}
+						else{
+							print("I'm sorry, I don't understand you");
+						}
 		}
 	}
 	
-	public static boolean findKeyword(String searchString, String key, int startIndex) {
-		String phrase = searchString.trim(); // returns a copy of the string, removes white spaces
+	public static int findKeyword(String searchString, String key, int startIndex) {
+		String phrase = searchString.trim(); // returns a copy of the string, removes white spaces at beginning and end
 		phrase = phrase.toLowerCase(); // makes the string lower case
 		key = key.toLowerCase();
 		int psn = phrase.indexOf(key); // psn = position
 		while(psn>=0){ // to check if the key word exists
 			String before = " ";
 			String after = " ";
-			if(psn + key.length() < phrase.length()){
-				after = phrase.substring(psn + key.length(), psn + key.length() + 1).toLowerCase();
+			if(psn + key.length() < phrase.length()){ // checks if word is the last word
+				after = phrase.substring(psn + key.length(), psn + key.length() + 1);
 			}
-			if(psn>0){
-				before = phrase.substring(psn-1,psn).toLowerCase();
+			if(psn>0){ // checks if the word is the first word
+				before = phrase.substring(psn-1,psn);
 			}
-			if(before.compareTo("a")<0 && after.compareTo("a")<0){
-				return true;
+			if(before.compareTo("a")<0 && after.compareTo("a")<0){ // checks for space after and before
+				if(noNegations(phrase, psn)){
+					return psn;
+				}
+				return -1;
 			}
+			
 			psn = phrase.indexOf(key,psn+1);
 		}
-		return false;
+		return -1;
 	}
-
+	//helper method, a method that contributes functionality to another method
+	//common when you need to repeat the same method over and over again
+	private static boolean noNegations(String phrase, int index){
+		//check to see if there is space for no in the front of the key
+		if(index-3>=0 && phrase.substring(index-3,index)=="no"){
+			return false;
+		}
+		if(index-4>=0 && phrase.substring(index-4,index)=="not"){
+			return false;
+		}
+		if(index-6>=0 && phrase.substring(index-6,index)=="never"){
+			return false;
+		}
+		if(index-4>=0 && phrase.substring(index-4,index)=="n't"){
+			return false;
+		}
+		return true;
+	}
 	public static void createTopic(){
 		input = new Scanner(System.in);
 		school = new School();
+		like = new JiaMingLike();
 	}
 	
 	public static String getInput(){
