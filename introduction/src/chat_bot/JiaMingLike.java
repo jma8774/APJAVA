@@ -26,5 +26,11 @@ public class JiaMingLike implements Topic {
 				}
 			}
 	}
+	public boolean isTriggered(String userInput){
+		if(JiaMingMain.findKeyword(userInput, "like", 0)>=0){
+			return true;
+		}
+		return false;
+	}
 
 }

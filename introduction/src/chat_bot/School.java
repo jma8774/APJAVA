@@ -16,4 +16,14 @@ public class School implements Topic{
 			JiaMingMain.print("That's my favorite " + "part about school too.");
 		}
 	}
+	public boolean isTriggered(String userInput){
+		String[] triggers = {"school", "class", "teacher"};
+		if(JiaMingMain.findKeyword(userInput, "school", 0)>=0){
+			return true;
+		}
+		if(JiaMingMain.findKeyword(userInput, "class", 0)>=0){
+			return true;
+		}
+		return false;
+	}
 }

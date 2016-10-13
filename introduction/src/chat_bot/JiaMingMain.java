@@ -29,10 +29,10 @@ public class JiaMingMain {
 			response = getInput();
 			if(findKeyword(response, "good", 0)>=0){
 				print("I'm so happy you're good.");
-				}else if(findKeyword(response, "school", 0)>=0){
+				}else if(school.isTriggered(response)){
 					inLoop = false;
 					school.talk();
-					}else if(findKeyword(response, "like", 0)>=0){
+					}else if(like.isTriggered(response)){
 						inLoop = false;
 						like.talk();
 					}
