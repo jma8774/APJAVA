@@ -1,18 +1,47 @@
 package array;
 
-public class arrays {
+public class Arrays {
 	public static void main(String[] args){
 		// this is how you time how quickly a computer performs
 		long startTime = System.currentTimeMillis();
-		String[] someStrings= new String[100];
-		populateArray(someStrings);
-		changeString(someStrings[99]);
-		printArray(someStrings);
+		
+		SampleElement sample = new SampleElement(10);
+		sample.increase();
+		System.out.println("The sample element has a number equal to "+sample.getNumber());
 		long endTime = System.currentTimeMillis();
 		System.out.println("arrayPractice() completed in " +(endTime-startTime) + " milliseconds.");
 	}	
+private static void passByValueDemonstration(){
+	String[] someStrings= new String[100];
+	populateArray(someStrings);
+	int ten = 10;
+	increase(ten);
+	System.out.println("Ten, increased is " + ten);
+	System.out.println("Before " + someStrings[99]);
+	changeString(someStrings[99]);
+	System.out.println("After \"changeString\" method " + someStrings[99]);
+	changeArray(someStrings);
+	System.out.println("After \"changeArray\" method " + someStrings[99]);
+	changeArrayElement(someStrings,99);
+	System.out.println("After \"changeArrayElement\" method " + someStrings[99]);
+}
+private static void changeArrayElement(String[] someStrings, int i) {
+		someStrings[i] = "new item"+(i+1);
+		
+	}
+private static void changeArray(String[] someStrings) {
+		someStrings = new String[100]; // doesn't work, it works if we remove this because without this line, the parameter would point
+		// at the global variable someStrings, however because we use someStrings = ???, we are changing the local variable to equal
+		// a new different array, so it doesn't change when we println because what was changed was another array that was just created
+		for(int i=0;i<someStrings.length;i++){
+			someStrings[i] = "new item "+(i+1);
+		}
+	}
+private static void increase(int x){
+	x = x+1; // its not adding to the original, it is making a new local variable in the method
+}
 private static void changeString(String a){
-	a = "This string has been changed";
+	a = "This string has been changed.";
 }
 private static void printArray(String[] a) {
 		for(String b: a){
