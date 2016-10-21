@@ -3,15 +3,10 @@ package array;
 public class homework {
 
 	 public static void main(String[] args) {
-		    
-	     /**
-	      * IMPORTANT NOTE: 
-	      * This homework assignment will be weighted 4x.
-	      * DO NOT ASSUME my tests are perfect! If you have code that you think should work, 
-	      * but you keep failing the tests PLEASE bring it to my attention so that I can fix the tests
-	      * DO NOT spend hours and hours trying to fix perfect code just because my test
-	      * says that it isn't perfect!
-	      * */
+		 	int searchValue=30;
+			int[] arr={10,20,30,50,100,200,300,400,500,700};
+			System.out.println("Searching for "+searchValue+" from the sorted array.");
+			System.out.println("The index of searchValue "+searchValue+" is at "+searchSorted(arr,searchValue)+".");
 	    }
 	    
 	    public static int searchUnsorted(int[] arrayToSearch, int key){
@@ -37,11 +32,33 @@ public class homework {
 	     * Note: You should attempt to write a method that is more efficient that searchUnsorted
 	     * */
 	    	int index=-1;
-	    	for(int i=0;i<sortedArrayToSearch.length;i++){
-	    		if(sortedArrayToSearch[i]>=key){
-	    			if(sortedArrayToSearch[i]==key){
-	    				index=i;
-	    				break;
+	    	if(sortedArrayToSearch[sortedArrayToSearch.length-1]==key){
+	            index=sortedArrayToSearch.length-1;
+	        }
+	    	else if(sortedArrayToSearch[0]==key){
+	    		index=0;
+	    	}
+	    	else{
+	    		int begin=0;
+	    		int end=sortedArrayToSearch.length-1;
+	    		boolean inLoop=true;
+	    		while(inLoop){
+	    			if(sortedArrayToSearch[(int) Math.floor((begin+end)/2)]==key){
+	    				inLoop=false;
+	    				System.out.println("The middle value of index "+begin+" and index "+end+" is "+sortedArrayToSearch[(int) Math.floor((begin+end)/2)]+", which is index "+(int) Math.floor((begin+end)/2)+".");
+	    				index=(int) Math.floor((begin+end)/2);
+	    			}
+	    			else if(sortedArrayToSearch[(int) Math.floor((begin+end)/2)]>key){
+	    				System.out.println("The middle value of index "+begin+" and index "+end+" is "+sortedArrayToSearch[(int) Math.floor((begin+end)/2)]+", which is index "+(int) Math.floor((begin+end)/2)+".");
+	    				System.out.println(sortedArrayToSearch[(int) Math.floor((begin+end)/2)]+" is bigger than the searchValue "+key+".");
+	    				end=(int) Math.floor((begin+end)/2);
+	    				System.out.println("The beginning index is now "+begin+" and the end index is now "+end+".");
+	    			}
+	    			else if(sortedArrayToSearch[(int) Math.floor((begin+end)/2)]<key){
+	    				System.out.println("The middle value of index "+begin+" and index "+end+" is "+sortedArrayToSearch[(int) Math.floor((begin+end)/2)]+", which is index "+(int) Math.floor((begin+end)/2)+".");
+	    				System.out.println(sortedArrayToSearch[(int) Math.floor((begin+end)/2)]+" is smaller than the searchValue "+key+".");
+	    				begin=(int) Math.floor((begin+end)/2);
+	    				System.out.println("The beginning index is now "+begin+" and the end index is now "+end+".");
 	    			}
 	    		}
 	    	}
