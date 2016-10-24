@@ -17,5 +17,16 @@ public class ArrayMethods {
 	private static boolean checkHalfway(int[] arr, int searchValue, int begin, int end) {
 		return searchValue<arr[(begin+end+1)/2];
 	}
-
+	private static void shuffle(int[] arr){
+		for(int i=0;i<arr.length;i++){
+			int random = (int)(Math.random()*arr.length);
+			swap(arr,i,random);
+		}
+	}
+	private static void print(int[] arr){
+		for(int i=0;i<arr.length;i++){
+			System.out.println(arr[i]+", ");
+		}
+		System.out.println(arr[arr.length-1]);
+	}
 }

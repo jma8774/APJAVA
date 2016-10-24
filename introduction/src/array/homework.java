@@ -4,11 +4,14 @@ public class homework {
 
 	 public static void main(String[] args) {
 		 	int searchValue=30;
-			int[] arr={10,20,30,50,100,200,300,400,500,700};
-			System.out.println("Searching for "+searchValue+" from the sorted array.");
-			System.out.println("The index of searchValue "+searchValue+" is at "+searchSorted(arr,searchValue)+".");
+		 	int[] arr={10,20,30,50,100,200,300,400,500,700};
+			//System.out.println("Searching for "+searchValue+" from the sorted array.");
+			//System.out.println("The index of searchValue "+searchValue+" is at "+searchSorted(arr,searchValue)+".");
+			cycleThrough(arr,3);
+			for(int i=0;i<arr.length;i++){
+				System.out.println(arr[i]);
+			}
 	    }
-	    
 	    public static int searchUnsorted(int[] arrayToSearch, int key){
 	    /**
 	     * this method take an unsorted int array (arrayToSearch) and returns an 
@@ -215,6 +218,16 @@ public class homework {
 	         * CHALLENGE
 	         * For extra credit, make your method handle NEGATIVE n
 	         * */
+	    	int inLoop=n;
+	    	while(inLoop>0){
+		    	for(int i=array.length-1;i>-1;i--){
+		    		int placeholder=array[i];
+			 		array[i]=array[0];
+			 		array[0]=placeholder;
+		    	}
+		    	inLoop--;
+	    	}
 	    }
+
 	
 }
