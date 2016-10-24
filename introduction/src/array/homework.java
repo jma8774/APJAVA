@@ -150,7 +150,13 @@ public class homework {
 	         * countDifferences({1,2,3},{1,3,2}) returns 2, since '2' and '3' are both present, but different locations
 	         * 
 	         * */
-	         return 0;
+	    	int counter=0;
+	    	for(int i=0;i<array1.length;i++){
+	    		if(array1[i]!=array2[i]){
+	    			counter++;
+	    		}
+	    	}
+	        return counter;
 	    }
 	    
 
