@@ -3,7 +3,7 @@ package array;
 public class BinarySearchSortedList {
 	public static void main(String[] args) {
 	 	int searchValue=992;
-		int[] arr={1000,999,998,997,996,995,994,993,992,991,900};
+		int[] arr={1000,999,998,997,996,995,994,993,992,991,900,899,888,877,777,776,666,555,333,111,44};
 		System.out.println("Searching for "+searchValue+" from a descending sorted array.");
 		System.out.println("The index of searchValue "+searchValue+" is at "+searchSorted(arr,searchValue)+".");
     }
