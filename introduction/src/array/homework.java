@@ -3,13 +3,15 @@ package array;
 public class homework {
 
 	 public static void main(String[] args) {
-		 	int searchValue=30;
-		 	int[] arr={1215, 1210, 1208, 1202, 1197, 1195, 1192, 1189, 1184, 1178, 1173, 1169, 1163, 1158, 1157, 1153, 1150, 1149, 1144, 1138, 1135, 1132, 1130, 1129, 1125, 1123, 1121, 1115, 1109, 1107, 1106, 1101, 1095, 1090, 1084, 1081, 1075, 1073, 1070, 1067, 1065, 1064, 1060, 1054, 1053, 1048, 1045, 1042, 1039, 1037, 1031, 1026, 1022, 1016, 1013, 1010, 1009, 1004, 1003, 1000, 998, 993, 989, 983, 978, 976, 970, 969, 963, 962, 958, 955, 954, 952, 949, 946, 942, 938, 933, 928, 927, 925, 923, 922, 919, 914, 909, 903, 897, 895, 892, 886, 884, 881, 876, 870, 868, 867, 865, 860, 854, 848, 843, 841, 835, 832, 826, 822, 818, 816, 810, 805, 802, 796, 792, 787, 781, 778, 777, 774, 770, 764, 759, 754, 748, 745, 742, 740, 736, 730, 728, 727, 726, 721, 715, 714, 708, 703, 697, 691, 685, 682, 681, 678, 673, 667, 665, 662, 657, 656, 650, 645, 644, 638, 636, 635, 634, 628, 626, 623, 620, 618, 615, 612, 606, 604, 599, 597, 595, 594, 592, 589, 588, 587, 586, 580, 574, 570, 568, 563, 560, 557, 551, 549, 548, 542, 536, 530, 525, 524, 522, 518, 512, 508, 507, 501, 496, 495, 491, 490, 484, 483, 481, 475, 474, 471, 466, 464, 462, 461, 459, 456, 455, 449, 448, 442, 436, 433, 427, 421, 415, 412, 409, 404, 399, 396, 395, 389, 387, 385, 382, 381, 378, 373, 367, 364, 358, 354, 349, 344, 340, 337, 335, 330, 329, 325, 323, 319, 315, 310, 309, 307, 302, 300, 298, 293, 289, 288, 282, 281, 277, 272, 271, 265, 259, 253, 247, 242, 237, 235, 233, 230, 228, 226, 222, 219, 218, 217, 216, 215, 209, 204, 202, 198, 193, 192, 186, 185, 179, 173, 167, 161, 156, 153, 150, 148, 147, 142, 141, 140, 139, 138, 135, 129, 124, 122, 119, 113, 108, 103, 97, 94, 91, 85, 81, 80, 76, 71, 65, 62, 58, 55, 51, 46, 43, 38, 32, 28, 25, 21, 19, 14, 9, 4, 0, -3, -6, -8, -9, -12, -13, -15, -20, -25, -31, -36, -41, -46, -49, -55, -61, -66, -69, -75, -81, -82, -87, -88, -90, -92, -96, -100, -104, -109, -114, -116, -117, -120, -121, -124, -127, -131, -135, -140, -145, -149, -154, -157, -163, -166, -171, -175, -176, -179, -185, -186, -189, -194, -196, -201, -204, -209, -211, -215, -221, -227, -231, -236, -237, -242, -245, -250, -253, -255, -259, -262, -268, -272, -275, -280, -286, -287, -289, -293, -296, -298, -304, -309, -311, -314, -320, -324, -327, -329, -335, -336, -338, -342, -344, -349, -355, -356, -358, -359, -363, -364, -368, -371, -372, -375, -376, -377, -380, -385, -391, -392, -393, -395, -400, -401, -405, -409, -410, -416, -417, -420, -422, -423, -429, -435, -440, -446, -448, -451, -453, -457, -458, -463, -465, -466, -470, -475, -481, -482, -487, -488, -491, -495, -501, -502, -505, -511, -517, -523, -526, -528, -530, -536, -541, -542, -543, -547, -550, -555, -561, -565, -569, -573, -576, -582};
-		 	long startTime = System.nanoTime();
-		 	System.out.println(searchSorted(arr,-582));
-		 	long endTime = System.nanoTime();
-		 	System.out.println("Took "+(endTime - startTime) + " ns"); 
+		 	int[] arr={5,4,3,2,1};
+		 	int[] subArr={3,2};
+		 	System.out.println(contains(arr,subArr));
 	    }
+	 	public static void printArray(int[] arr){
+	 		for(int i=0;i<arr.length;i++){
+	 			System.out.println(arr[i]);
+	 		}
+	 	}
 	    public static int searchUnsorted(int[] arrayToSearch, int key){
 	    /**
 	     * this method take an unsorted int array (arrayToSearch) and returns an 
@@ -76,7 +78,27 @@ public class homework {
 	        return true;
 	    }
 	    
-	    
+	    public static int[] getSubArray(int[] arr, int startIndex, int endIndex){
+	    	int[] subArray=new int[endIndex-startIndex+1];
+	    	for(int i=0;i<subArray.length;i++){
+	    		subArray[i]=arr[startIndex+i];
+	    	}
+	    	return subArray;
+	    }
+	    public static boolean contains(int[]arr,int[]subArray){
+	    	int i=0;
+	    	while(getSubArray(arr,i,i+(subArray.length-1)).equals(subArray)==false && i<=arr.length-1){
+		    	for(i=0;i<arr.length;i++){
+		    		if(arr[i]==subArray[0]){
+		    			break;
+		    		}
+		    		if(i==arr.length-1){
+		    			break;
+		    		}
+		    	}
+	    	}
+	    	return getSubArray(arr,i,i+(subArray.length-1)).equals(subArray);
+	    }
 	    public static double[] getStats(double[] array){
 	        /** 
 	         * This method return a double[] contain a WHOLE BUNCH of stats
@@ -96,11 +118,12 @@ public class homework {
 	        stats[0]=stats[0]/array.length;
 	        stats[1]=array[0]; //max
 	        stats[2]=array[array.length-1];//min
+	        int middleIndex=array.length/2;
 	        if((array.length % 2)==0){//median
-	        	stats[3]=(array[array.length/2]+array[(array.length/2)-1])/2;
+	        	stats[3]=(array[middleIndex]+array[middleIndex-1])/2;
 	        }
 	        else{
-	        	stats[3]=array[(int)(Math.ceil((array.length)/2))];
+	        	stats[3]=array[(int)(Math.ceil(middleIndex/2))];
 	        }
 	        for(int i=0;i<array.length;i++){//values greater than mean
 	        	if(array[i]>=stats[0]){
@@ -211,7 +234,14 @@ public class homework {
 	    	return distinctItemList; 
 	    }
 	    
-	    
+	    public static int countUnderBound(double[] arr, double d){
+	    	int counter=0;
+	    	for(int i=0;i<arr.length;i++){
+	    		if(arr[i]<d)counter++;
+	    	}
+			return counter;
+	    	
+	    }
 	    public static void cycleThrough(int[] array, int n){
 	        /** This problem represents people moving through a line.
 	         * Once they get to the front of the line, they get what they've been waiting for, then they 
