@@ -19,7 +19,7 @@ private static void passByValueDemonstration(){
 	changeArrayElement(someStrings,99);
 	System.out.println("After \"changeArrayElement\" method " + someStrings[99]);
 }
-private static void testPrimes(int numberToTest){//true=not prime, false=prime
+private static void testPrimes(int numberToTest){//false=not prime, true=prime
 	int lastToCheck=(int)(Math.sqrt(numberToTest));
 	boolean[] theNumbers= new boolean[numberToTest];
 	for(int i=0;i<numberToTest;i++){
@@ -27,19 +27,22 @@ private static void testPrimes(int numberToTest){//true=not prime, false=prime
 	}
 	theNumbers[0]=false;
 	theNumbers[1]=false;
-	boolean first=true;
 	int increment=2;
-	for(int test=2;test<=numberToTest;test+=increment){
-		if(!first){
-			theNumbers[test]=false;
-		}else{
-			first=false;
+	while(increment!=lastToCheck){
+		boolean first=true;
+		for(int test=increment;test<numberToTest;test+=increment){
+			if(!first){
+				theNumbers[test]=false;
+			}else{
+				first=false;
+			}
 		}
+		increment++;
 	}
-	for(int i=0;i<theNumbers.length;i++){
-		if(theNumbers[i]){
-			System.out.println(i+" is prime.");
-		}
+		for(int i=0;i<theNumbers.length;i++){
+			if(theNumbers[i]){
+				System.out.println(i+" is prime.");
+			}
 	}
 }
 private static void changeArrayElement(String[] someStrings, int i) {
