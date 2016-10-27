@@ -3,13 +3,7 @@ package array;
 public class Arrays {
 	public static void main(String[] args){
 		// this is how you time how quickly a computer performs
-		long startTime = System.currentTimeMillis();
-		
-		SampleElement sample = new SampleElement(10);
-		sample.increase();
-		System.out.println("The sample element has a number equal to "+sample.getNumber());
-		long endTime = System.currentTimeMillis();
-		System.out.println("arrayPractice() completed in " +(endTime-startTime) + " milliseconds.");
+		testPrimes(100);
 	}	
 private static void passByValueDemonstration(){
 	String[] someStrings= new String[100];
@@ -24,6 +18,29 @@ private static void passByValueDemonstration(){
 	System.out.println("After \"changeArray\" method " + someStrings[99]);
 	changeArrayElement(someStrings,99);
 	System.out.println("After \"changeArrayElement\" method " + someStrings[99]);
+}
+private static void testPrimes(int numberToTest){//true=not prime, false=prime
+	int lastToCheck=(int)(Math.sqrt(numberToTest));
+	boolean[] theNumbers= new boolean[numberToTest];
+	for(int i=0;i<numberToTest;i++){
+		theNumbers[i]=true;
+	}
+	theNumbers[0]=false;
+	theNumbers[1]=false;
+	boolean first=true;
+	int increment=2;
+	for(int test=2;test<=numberToTest;test+=increment){
+		if(!first){
+			theNumbers[test]=false;
+		}else{
+			first=false;
+		}
+	}
+	for(int i=0;i<theNumbers.length;i++){
+		if(theNumbers[i]){
+			System.out.println(i+" is prime.");
+		}
+	}
 }
 private static void changeArrayElement(String[] someStrings, int i) {
 		someStrings[i] = "new item"+(i+1);

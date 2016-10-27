@@ -5,7 +5,7 @@ public class homework {
 	 public static void main(String[] args) {
 		 	int[] arr={5,4,3,2,1};
 		 	int[] subArr={3,2};
-		 	System.out.println(contains(arr,subArr));
+		 	printArray(populateWithoutRepeat(arr));
 	    }
 	 	public static void printArray(int[] arr){
 	 		for(int i=0;i<arr.length;i++){
@@ -220,10 +220,10 @@ public class homework {
 	         * */
 	    	int[] distinctItemList=new int[n];
 	    	boolean[] isUsedAlready=new boolean[2*n];
-	    	for(int i=0;i<distinctItemList.length;i++){
+	    	for(int i=0;i<n;i++){
 	    		boolean inLoop=true;
 	    		while(inLoop){
-	    			int random = (int) (Math.random()*isUsedAlready.length)+1;
+	    			int random = (int) (Math.random()*n)+1;
 	    			if(isUsedAlready[random-1]==false){
 	    				inLoop=false;
 	    				distinctItemList[i]=random;
@@ -241,6 +241,17 @@ public class homework {
 	    	}
 			return counter;
 	    	
+	    }
+	    public static int[] populateWithoutRepeat(int[]arr){
+	    	int[] subArr=new int[arr.length-1];
+	    	for(int i=0;i<subArr.length;i++){
+	    		int randNum=(int)(Math.random()*(arr.length));
+	    		while(searchUnsorted(subArr,randNum)>-1){
+	    			randNum=(int)(Math.random()*(arr.length));
+	    		}
+	    		subArr[i]=randNum;
+	    	}
+	    	return subArr;
 	    }
 	    public static void cycleThrough(int[] array, int n){
 	        /** This problem represents people moving through a line.
