@@ -30,6 +30,7 @@ private static void testPrimes(int numberToTest){//false=not prime, true=prime
 	int increment=2;
 	while(increment!=lastToCheck){
 		if(theNumbers[increment]){
+			System.out.println("\n"+increment+" is prime. Crossing off:");
 			boolean first=true;
 			for(int test=increment;test<numberToTest;test+=increment){
 				if(!first){
