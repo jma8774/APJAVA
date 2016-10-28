@@ -29,12 +29,15 @@ private static void testPrimes(int numberToTest){//false=not prime, true=prime
 	theNumbers[1]=false;
 	int increment=2;
 	while(increment!=lastToCheck){
-		boolean first=true;
-		for(int test=increment;test<numberToTest;test+=increment){
-			if(!first){
-				theNumbers[test]=false;
-			}else{
-				first=false;
+		if(theNumbers[increment]){
+			boolean first=true;
+			for(int test=increment;test<numberToTest;test+=increment){
+				if(!first){
+					System.out.print(test+",");
+					theNumbers[test]=false;
+				}else{
+					first=false;
+				}
 			}
 		}
 		increment++;
