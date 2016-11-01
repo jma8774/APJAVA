@@ -9,6 +9,6 @@ public class ClassOne {
 		// TODO Auto-generated constructor stub
 	}
 	public static int changeValue(int value){
-		return value
+		return value;
 	}
 }

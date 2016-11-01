@@ -1,6 +1,7 @@
 package cave_explorer;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class CaveExplorer {
 	public static Scanner in;
@@ -17,5 +18,6 @@ public class CaveExplorer {
 		}
 		currentRoom=caves[0][1];
 		currentRoom.enter();
+		caves[0][1].setConnection(caves[0][2]);
 	}
 }
