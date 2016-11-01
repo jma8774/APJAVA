@@ -9,7 +9,7 @@ public class MainClass {
 		System.out.println(ClassOne.className);
 		System.out.println(ClassOne.classGrade);
 		ClassOne.classGrade=ClassOne.changeValue(11);
-		System.out.println(ClassOne.classGrade);
+		System.out.println(ClassOne.classGrade)
 	}
 		
 }
