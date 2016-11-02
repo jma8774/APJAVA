@@ -22,6 +22,7 @@ public class MainClass
     		}
     		System.out.println("\n");
     	}
+    	System.out.println(employees[0][0].x+","+employees[0][0].y);
     }
 }
 
