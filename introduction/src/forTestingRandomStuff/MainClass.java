@@ -4,21 +4,29 @@ public class MainClass
 {  
     public static void main(String args[])
     {
-        System.out.println("Hello, World!");
-        //step1 : first create array of 10 elements that holds object addresses.
+       /* System.out.println("Hello, World!");
         Emp[] employees = new Emp[10];
-        //step2 : now create objects in a loop.
         for(int i=0; i<employees.length; i++){
             employees[i] = new Emp(i);//this will call constructor.
             System.out.println(employees[i].returnEno());
             employees[i].changeValue(1);
             System.out.println(employees[i].returnEno());
-        }
+        }*/
+    	
+    	//now try it with 2d arrays
+    	Emp[][] employees=new Emp[5][5];
+    	for(int i=0;i<employees.length;i++){
+    		for(int j=0;j<employees[i].length;j++){
+    			employees[i][j]=new Emp(i,j);
+    			System.out.print(employees[i][j].returnXY());
+    		}
+    		System.out.println("\n");
+    	}
     }
 }
 
 class Emp{
-    int eno;
+   /* int eno;
     public Emp(int no){
         eno = no;
     }
@@ -27,5 +35,14 @@ class Emp{
     }
     public void changeValue(int incr){
     	eno+=incr;
-    }
+    }*/
+	int x;
+	int y;
+	public Emp(int xCoord, int yCoord){
+		x=xCoord;
+		y=yCoord;
+	}
+	public String returnXY(){
+		return ("("+x+","+y+")");
+	}
 }
