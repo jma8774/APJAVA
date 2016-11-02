@@ -1,9 +1,9 @@
 package forTestingRandomStuff;
 
 public class ClassOne {
-	public static String className="Physics";
-	public static int classGrade=12;
-	public static int numStudents;
+	private static String className="Physics";
+	private static int classGrade=12;
+	private static int numStudents;
 	
 	public ClassOne() {
 		// TODO Auto-generated constructor stub

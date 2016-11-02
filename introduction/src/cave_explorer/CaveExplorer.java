@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class CaveExplorer {
 	public static Scanner in;
-	public static CaveRoom caves[][];
+	public static CaveRoom[][] caves;
 	public static CaveRoom currentRoom;
 	public static Inventory inventory;
 	
@@ -18,6 +18,6 @@ public class CaveExplorer {
 		}
 		currentRoom=caves[0][1];
 		currentRoom.enter();
-		caves[0][1].setConnection(caves[0][2]);
+		caves[0][1].setConnection(CaveRoom.EAST, caves[0][2], null);
 	}
 }
