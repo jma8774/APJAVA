@@ -92,6 +92,7 @@ public class TwoDArrayIntro {
 	}
 	private static void startExploring() {
 		while(true){
+			pic[i][j]="x";
 			printPic(pic);
 			System.out.println("You are in room "+arr2D[i][j]);
 			System.out.println("What do you want do do?");
@@ -105,9 +106,10 @@ public class TwoDArrayIntro {
 		
 	}
 	private static void interpretInput(String input) {
+		pic[i][j]=" ";
 		int iOrig=i;
 		int jOrig=j;
-		if(input.equals("w")&&i>0)i--; //i=rows
+		if(input.equals("w")&&i>0)i--;  //i=rows
 		else if(input.equals("a")&&j>0)j--; //j=col
 		else if(input.equals("s")&&i<arr2D.length)i++;
 		else if(input.equals("d")&&j<arr2D[0].length)j++;
