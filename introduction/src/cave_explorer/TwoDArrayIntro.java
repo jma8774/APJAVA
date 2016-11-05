@@ -92,8 +92,7 @@ public class TwoDArrayIntro {
 	}
 	private static void startExploring() {
 		while(true){
-			pic[i][j]="x";
-			printPic(pic);
+			createMap(arr2D.length,arr2D[0].length,i,j);
 			System.out.println("You are in room "+arr2D[i][j]);
 			System.out.println("What do you want do do?");
 			String input = in.nextLine();
@@ -111,8 +110,8 @@ public class TwoDArrayIntro {
 		int jOrig=j;
 		if(input.equals("w")&&i>0)i--;  //i=rows
 		else if(input.equals("a")&&j>0)j--; //j=col
-		else if(input.equals("s")&&i<arr2D.length)i++;
-		else if(input.equals("d")&&j<arr2D[0].length)j++;
+		else if(input.equals("s")&&i<arr2D.length-1)i++;
+		else if(input.equals("d")&&j<arr2D[0].length-1)j++;
 		if(iOrig==i&&jOrig==j){
 			System.out.println("End of the universe.");
 		}
@@ -186,6 +185,34 @@ public class TwoDArrayIntro {
 		}
 		return 0;
 	}
+	public static void createMap(int row, int col, int currRow, int currCol){
+		createTopCol(col);
+		for(int r=0;r<row;r++){
+			for(int i=0; i<3; i++){ // each room is 3 lines in height
+				for(int c=0; c<=col;c++){
+					if(i==1 && c==currCol && r==currRow){
+						System.out.print("| x ");
+					}
+					else if(i==2 && c!=col){
+						System.out.print("|___");
+					}
+					else if(i==2 && c==col){
+						System.out.print("|");
+					}
+					else System.out.print("|   ");
+				}
+				System.out.println("");
+			}
+		}
+	}
+	
+	public static void createTopCol(int col){
+		for(int i=0;i<col;i++){
+			System.out.print(" ___");
+		}
+		System.out.println("");
+	}
+	
 	public static void printPic(String[][] arr){
 		for(int i =0; i<arr.length;i++){
 			for(int j=0; j <arr[i].length;j++){

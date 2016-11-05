@@ -7,18 +7,15 @@ public class CreateMap {
 	}
 	
 	public static void createMap(int row, int col){
-		createCol(col);
+		createTopCol(col);
 		for(int r=0;r<row;r++){
 			createRow(col);
-			createCol(col);
 		}
 	}
 	
-	public static void createCol(int col){
-		System.out.print(" ");
-		while(col>0){
-			System.out.print("____");
-			col--;
+	public static void createTopCol(int col){
+		for(int i=0;i<col;i++){
+			System.out.print(" ___");
 		}
 		System.out.println("");
 	}
@@ -26,7 +23,13 @@ public class CreateMap {
 	public static void createRow(int col){
 		for(int i=0; i<3; i++){
 			for(int c=0; c<=col;c++){
-				System.out.print("|   ");
+				if(i==2 && c!=col){
+					System.out.print("|___");
+				}
+				else if(i==2 && c==col){
+					System.out.print("|");
+				}
+				else System.out.print("|   ");
 			}
 			System.out.println("");
 		}
