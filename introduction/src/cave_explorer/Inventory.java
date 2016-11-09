@@ -20,6 +20,8 @@ public class Inventory {
 				String text="";
 				for(CaveRoom cr: row){
 					if(cr.getDoor(CaveRoom.WEST)!=null && cr.getDoor(CaveRoom.WEST).isOpen()){
+						text+=" ";
+					}else{
 						text+="|";
 					}
 					if(i==0){
