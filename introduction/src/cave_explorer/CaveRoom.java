@@ -115,31 +115,35 @@ public class CaveRoom {
 
 	public void interpretInput(String input) {
 		while(!isValid(input)){
-			System.out.println("You can only enter w, a, s, or d");
+			System.out.println("You can only enter w,a,s,d");
 			input = CaveExplorer.in.nextLine();
 		}
-		String[] keys={"w","a","s","d"};
-		int indexFound =-1;
-		for(int i=0;i<keys.length;i++){
+		String[] keys = {"w","d","s","a"};
+		int indexFound = -1;
+		for(int i=0; i<keys.length; i++){
 			if(input.equals(keys[i])){
-				indexFound=i;
+				indexFound = i;
 				break;
 			}
 		}
-		if(borderingRooms[indexFound]!=null && doors[indexFound].isOpen()){
+		gotoRoom(indexFound);
+	}
+	
+	private static boolean isValid(String input) {
+		String lc = input.toLowerCase();
+		String [] keys = {"w","a","s","d"};
+		for(String key:keys){
+			if(key.equals(lc))
+				return true;
+		}
+		return false;
+	}
+	public void gotoRoom(int direction){
+		if(borderingRooms[direction] != null && doors[direction].isOpen()){
 			CaveExplorer.currentRoom.leave();
-			CaveExplorer.currentRoom = borderingRooms[indexFound];
+			CaveExplorer.currentRoom = borderingRooms[direction];
 			CaveExplorer.currentRoom.enter();
 			CaveExplorer.inventory.updateMap();
 		}
 	}
-
-	private static boolean isValid(String in) {
-		String input = in.toLowerCase();
-		if(input.equals("w") || input.equals("a")|| input.equals("s") || input.equals("d")){
-			return true;
-		}
-		return false;
-	}
-
 }

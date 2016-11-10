@@ -18,10 +18,10 @@ public class CaveExplorer {
 				caves[i][j] = new CaveRoom("This cave has coordinates "+i+", "+j);
 			}
 		}
+		caves[0][2] = new Event_Room("This is the room where the guy with the tail met you.",new GameStartEvent());
 		currentRoom = caves[0][1];
 		currentRoom.enter();
 		caves[0][1].setConnection(CaveRoom.EAST,caves[0][2],new Door());
-		caves[0][2].setConnection(CaveRoom.EAST,caves[0][3],new Door());
 		caves[0][2].setConnection(CaveRoom.SOUTH,caves[1][2],new Door());
 		caves[1][2].setConnection(CaveRoom.SOUTH,caves[2][2],new Door());
 		inventory = new Inventory();
@@ -38,6 +38,11 @@ public class CaveExplorer {
 			String input = in.nextLine();
 			currentRoom.interpretInput(input);
 		}
+	}
+
+
+	public static void print(String string) {
+		System.out.println(string);
 	}
 	
 }
