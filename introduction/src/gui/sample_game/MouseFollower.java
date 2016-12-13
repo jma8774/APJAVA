@@ -16,7 +16,7 @@ public class MouseFollower extends GUIApplication {
 	}
 
 	public static void main(String[] args) {
-
+		new MouseFollower(800,600);
 	}
 
 }
