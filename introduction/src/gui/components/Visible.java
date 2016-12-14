@@ -9,7 +9,7 @@ public interface Visible {
 	public int getY();
 	public int getWidth();
 	public int getHeight();
-	public boolean isAnimated();
+	public boolean isAnimate();
 	public void update();
-	
+
 }
