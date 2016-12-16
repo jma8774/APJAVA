@@ -2,10 +2,11 @@ package gui.components;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-public class Button extends TextLabel {
+public class Button extends TextLabel implements Clickable{
 	
 	private Color color;
 	private Action action;
@@ -21,16 +22,25 @@ public class Button extends TextLabel {
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		
 		//rectangle
-		System.out.println("called");
 		g.setColor(color);
 		g.fillRoundRect(0, 0, this.getWidth(), this.getHeight(), 50, 50);
 		g.setColor(Color.black);
-		g.drawRoundRect(0, 0, this.getWidth(), this.getHeight(), 50, 50);
+		g.drawRoundRect(0, 0, this.getWidth()-1, this.getHeight()-1, 50, 50);
 		
 		//text
 		g.setColor(Color.white);
 		g.setFont(new Font(this.getFont(), Font.PLAIN,this.getSize()));
-		if(this.getText() != null) g.drawString(this.getText(), 4, this.getHeight()-5);
+		FontMetrics fm = g.getFontMetrics();
+		if(this.getText() != null){
+			g.setColor(Color.white);
+			String t = getText();
+			int cutoff = t.length();
+			while(cutoff > 0 && fm.stringWidth(t) > getWidth()){
+				cutoff --;
+				t = t.substring(0,cutoff); 
+			}
+			g.drawString(t, (getWidth()-fm.stringWidth(t))/2, (getHeight()+fm.getHeight()-fm.getDescent())/2);
+		}
 	}
 
 	public Color getColor() {
@@ -49,5 +59,16 @@ public class Button extends TextLabel {
 	public void setAction(Action action) {
 		this.action = action;
 		update();
+	}
+
+	@Override
+	public void act() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isHovered(int x, int y) {
+		return (x >= this.getX() && y >= this.getY() && x <= this.getX() + this.getWidth() && y <= this.getY() + this.getHeight());
 	}
 }

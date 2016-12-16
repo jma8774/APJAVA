@@ -3,9 +3,10 @@ package GUISampleGame;
 import gui.GUIApplication;
 import gui.Screens.CoordinateScreen;
 
-public class MouseFollower extends GUIApplication {
+public class MouseFollower extends GUIApplication implements Runnable {
 	
 	//FIELDS
+	public static MouseFollower game; // only ONE game exists
 	private CoordinateScreen cs;
 
 	public MouseFollower(int width, int height) {
@@ -19,8 +20,9 @@ public class MouseFollower extends GUIApplication {
 	}
 
 	public static void main(String[] args) {
-		new MouseFollower(800,600);
-
+		game = new MouseFollower(800,600);
+		Thread app = new Thread(game);
+		app.start();
 	}
 
 }

@@ -8,6 +8,9 @@ public class WarmUp {
 		grid = new boolean[5][5];
 		print(grid);
 		buttonClick(3,3);
+		print(grid);
+		buttonClick(3,3);
+		print(grid);
 	}
 	
 	public static void switchRow(boolean[] row, int x) {
