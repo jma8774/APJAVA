@@ -16,7 +16,7 @@ public class TextLabel extends Component {
 		super(x, y, w, h);
 		this.text = text;
 		this.font = "Helvetica";
-		this.size = 20;
+		this.size = 14;
 		update();
 	}
 	

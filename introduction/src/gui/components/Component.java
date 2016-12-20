@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 public abstract class Component implements Visible {
 	
-	//FIELDS
+//	fields
 	private int x;
 	private int y;
 	private int w;

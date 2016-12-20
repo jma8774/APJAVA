@@ -15,8 +15,9 @@ public abstract class GUIApplication extends JFrame{
 	
 	public GUIApplication(int width, int height) {
 		super();
+//		setUndecorated(true);
 		setBounds(20,20,width,height);
-		//terminates program when window is closed
+//		terminates program when window is closed
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		initScreen();
 		setVisible(true);
@@ -44,8 +45,10 @@ public abstract class GUIApplication extends JFrame{
 	
 	public void run() {
 		while(true){
-			currentScreen.update(); //redraw display
-			repaint(); //redraw window
+//			redraw display
+			currentScreen.update(); 
+//			redraw window
+			repaint(); 
 			try {
 				Thread.sleep(30);
 			} catch (InterruptedException e) {
