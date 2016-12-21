@@ -63,11 +63,11 @@ public class Button extends TextLabel implements Clickable{
 
 	@Override
 	public void act() {
-		
+		this.action.act();
 	}
 
 	@Override
 	public boolean isHovered(int x, int y) {
-		return (x >= this.getX() && y >= this.getY() && x <= this.getX() + this.getWidth() && y <= this.getY() + this.getHeight());
+		return x>getX() && x<getX()+getWidth() && y > getY() && y<getY()+getHeight();
 	}
 }

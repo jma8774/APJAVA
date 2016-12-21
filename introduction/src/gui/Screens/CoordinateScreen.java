@@ -31,8 +31,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		text = new TextLabel(10, 20, 500, 40, "Mouse at:");
 		button = new Button(40,100,300,120,"Button",new Color(0,76,153), new Action(){
 			public void act(){
-				System.out.println("Button clicked");
-//				MouseFollower.game.setScreen(MouseFollower.buttonScreen);
+				MouseFollower.game.setScreen(MouseFollower.buttonScreen);
 			}
 		});
 //		area = new TextArea(20, 200, 500, 375, "Whenever I get a package of plain M&Ms, I make it my duty to continue the "
@@ -74,7 +73,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 		return this;
 	}
 	
-	public MouseListener getMouseListner() {
+	public MouseListener getMouseListener() {
 		return this;
 	}
 	

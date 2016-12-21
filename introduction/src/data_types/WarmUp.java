@@ -7,16 +7,16 @@ public class WarmUp {
 	public static void main(String[] args) {
 		grid = new boolean[5][5];
 		print(grid);
-		buttonClick(3,3);
+		buttonClick(-1,-1);
 		print(grid);
-		buttonClick(3,3);
+		buttonClick(-1,-1);
 		print(grid);
 	}
 	
 	public static void switchRow(boolean[] row, int x) {
 		if(x>=0 && x<row.length){
 			for(int i=-1; i<2; i++){
-				if(x+1 >= 0 && x+i < row.length){
+				if(x+i >= 0 && x+i < row.length){
 					row[x+i] = !row[x+i];
 				}
 			}
