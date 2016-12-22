@@ -1,7 +1,8 @@
-package GUISampleGame;
+package gui.SampleGame;
 
 import gui.GUIApplication;
 import gui.Screens.ButtonScreen;
+import gui.Screens.ClickableGraphicsScreen;
 import gui.Screens.CoordinateScreen;
 
 public class MouseFollower extends GUIApplication implements Runnable {

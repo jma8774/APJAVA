@@ -6,7 +6,7 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 
-import GUISampleGame.MouseFollower;
+import gui.SampleGame.MouseFollower;
 
 public abstract class GUIApplication extends JFrame{
 	

@@ -6,10 +6,11 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
-import GUISampleGame.MouseFollower;
 import gui.Screen;
+import gui.SampleGame.MouseFollower;
 import gui.components.Action;
 import gui.components.Button;
+import gui.components.ClickableGraphic;
 import gui.components.Graphic;
 import gui.components.TextArea;
 import gui.components.TextLabel;
@@ -21,19 +22,19 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 	private TextLabel text;
 	private TextArea area;
 	private Graphic gastly;
+	private ClickableGraphic randomGastly;
 	
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
 	}
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
 		text = new TextLabel(10, 20, 500, 40, "Mouse at:");
-		button = new Button(40,100,300,120,"Button",new Color(0,76,153), new Action(){
-			public void act(){
-				MouseFollower.game.setScreen(MouseFollower.buttonScreen);
-			}
-		});
+//		button = new Button(40,100,300,120,"Button",new Color(0,76,153), new Action(){
+//			public void act(){
+//				MouseFollower.game.setScreen(MouseFollower.buttonScreen);
+//			}
+//		});
 //		area = new TextArea(20, 200, 500, 375, "Whenever I get a package of plain M&Ms, I make it my duty to continue the "
 //				+ "strength and robustness of the candy as a species. To this end, I hold M&M duels. Taking two candies between "
 //				+ "my thumb and forefinger, I apply pressure, squeezing them together until one of them cracks and splinters. "
@@ -51,7 +52,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 //				+ "There can be only one. ");
 //		gastly = new Graphic(20, 160, "resources/sampleImages/gastly.png", .1);
 		viewObjects.add(text);
-		viewObjects.add(button);
+//		viewObjects.add(button);
 //		viewObjects.add(area);
 //		viewObjects.add(gastly);
 	}

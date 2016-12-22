@@ -12,7 +12,6 @@ public class ButtonScreen extends Screen {
 	
 	public ButtonScreen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
