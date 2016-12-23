@@ -13,7 +13,7 @@ import gui.components.Visible;
 
 public class ClickableGraphicsScreen extends Screen implements MouseListener, MouseMotionListener{
 	
-	private ClickableGraphic gastly;
+	private ClickableGraphic[] gastlys;
 	
 	public ClickableGraphicsScreen(int width, int height) {
 		super(width, height);
@@ -21,17 +21,20 @@ public class ClickableGraphicsScreen extends Screen implements MouseListener, Mo
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		gastly = new ClickableGraphic((int)(Math.random() * 800), (int)(Math.random() * 600), "resources/sampleImages/gastly.png", .1);
-		
-		gastly.setAction(new Action() {
-			@Override
-			public void act() {
-				gastly.setX((int)(Math.random() * 700));
-				gastly.setY((int)(Math.random() * 500));
-			}		
-		});
-		
-		viewObjects.add(gastly);
+		gastlys = new ClickableGraphic[3000];
+		for(int i = 0; i < gastlys.length; i++) {
+			gastlys[i] = new ClickableGraphic((int)(Math.random() * 800), (int)(Math.random() * 600), "resources/sampleImages/gastly.png", .1);
+			gastlys[i].setAction(new Action() {
+				@Override
+				public void act() {
+					for(int i = 0; i < gastlys.length; i++) {
+						gastlys[i].setX((int)(Math.random() * 800));
+						gastlys[i].setY((int)(Math.random() * 600));
+					}
+				}		
+			});
+			viewObjects.add(gastlys[i]);
+		}
 	}
 	
 	public MouseListener getMouseListener() {
@@ -44,8 +47,10 @@ public class ClickableGraphicsScreen extends Screen implements MouseListener, Mo
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(gastly.isHovered(e.getX(), e.getY())){
-			gastly.act();
+		for(int i = 0; i < gastlys.length; i++) {
+			if(gastlys[i].isHovered(e.getX(), e.getY())){
+				gastlys[i].act();
+			}
 		}
 	}
 

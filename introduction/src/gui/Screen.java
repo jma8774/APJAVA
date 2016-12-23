@@ -67,4 +67,12 @@ public abstract class Screen {
 	public MouseListener getMouseListener() {
 		return null;
 	}
+	
+	public void remove(Visible v) {
+		viewObjects.remove(v);
+	}
+	
+	public void addObjects(Visible v) {
+		viewObjects.add(v);
+	}
 }
