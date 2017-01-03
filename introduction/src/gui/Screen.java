@@ -53,13 +53,14 @@ public abstract class Screen {
 //		for(int i =0; i <viewObjects.size(); i++){
 //			
 //		}
-		for(Visible v: viewObjects){
+		for(int i = 0 ; i < viewObjects.size(); i++){
+			Visible v = viewObjects.get(i);
 			g.drawImage(v.getImage(), v.getX(), v.getY(), null);
 		}
 	}
 	
-	//represents ABILITY to listen to mouse
-	//but isn't actually doing something
+//	represents ABILITY to listen to mouse
+//	but isn't actually doing something
 	public MouseMotionListener getMouseMotionListener() {
 		return null;
 	}
@@ -69,10 +70,50 @@ public abstract class Screen {
 	}
 	
 	public void remove(Visible v) {
+//		we have a very simple command : remove(v)
+//		however, this is a very big deal on the AP exam
+//		because when an object is removed from a list, every other object AFTER that object is moved up in order
+//		therefore, all of their respected indices have changed, you MUST be aware of this
+//		
+//		EXAMPLE: List<Integer> {4,8,7,1} and you want to remove all Integers greater than 5, you do this:
+//		for(int i = 0; i < list.size(); i ++ {
+//			if(list.get(i) > 5) list.remove(i);
+//		}
+//		THIS IS WRONG!
+//		you have to subtract i by 1 or else every time you remove an item in the loop, 
+//		you will skip over one because the indices have changed
+//		
+//		EXAMPLE 2:
+//		for(int i = 0; i < list.size(); i ++ {
+//			while(list.get(i) > 5) list.remove(i);
+//	}
+//		THIS IS CORRECT! OR you can do this:
+//		
+//		EXAMPLE 3:
+//		for(int i = 0; i < list.size(); i ++ {
+//			if(list.get(i) > 5) {
+//				list.remove(i);
+//				i--;
+//		{
+//	}
 		viewObjects.remove(v);
 	}
 	
 	public void addObjects(Visible v) {
 		viewObjects.add(v);
+	}
+	
+	public void moveToBackground(Visible v) {
+		if(viewObjects.contains(v)) {
+			viewObjects.remove(v);
+			viewObjects.add(0,v);
+		}
+	}
+	
+	public void moveToFront(Visible v) {
+		if(viewObjects.contains(v)) {
+			viewObjects.remove(v);
+			viewObjects.add(v);
+		}
 	}
 }
