@@ -96,6 +96,7 @@ public abstract class Screen {
 //				i--;
 //		{
 //	}
+//		ONE MORE NOTE: if you call list.remove(int), it will return the objects being removed at that index
 		viewObjects.remove(v);
 	}
 	
