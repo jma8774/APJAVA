@@ -26,7 +26,21 @@ public abstract class ClickableScreen extends Screen implements Clickable, Mouse
 			}
 		}
 	}
-	
+
+	public void addObject(Visible v){
+		super.addObjects(v);
+		if(v instanceof Clickable){
+			clickables.add((Clickable)v);
+ 		}
+	}
+	 
+
+	 
+	public void remove(Visible v){
+		super.remove(v);
+		clickables.remove((Clickable)v);
+	} 
+	 
 	public abstract void initAllObjects(ArrayList<Visible> clickables);
 	
 	@Override

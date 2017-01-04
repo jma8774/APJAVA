@@ -13,7 +13,7 @@ import gui.components.Visible;
 public abstract class Screen {
 	
 	private BufferedImage image;
-	private ArrayList<Visible> viewObjects;
+	public ArrayList<Visible> viewObjects;
 	
 	public Screen(int width, int height){
 		viewObjects = new ArrayList<Visible>();

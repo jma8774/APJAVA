@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 import gui.SampleGame.MouseFollower;
 
-public abstract class GUIApplication extends JFrame{
+public abstract class GUIApplication extends JFrame implements Runnable {
 	
 	//FIELDS
 	private Screen currentScreen;
