@@ -8,7 +8,7 @@ import gui.Screen;
 import gui.components.Clickable;
 import gui.components.Visible;
 
-public abstract class ClickableScreen extends Screen implements Clickable, MouseListener {
+public abstract class ClickableScreen extends Screen implements MouseListener {
 	
 	private ArrayList<Clickable> clickables;
 	
@@ -42,26 +42,20 @@ public abstract class ClickableScreen extends Screen implements Clickable, Mouse
 	} 
 	 
 	public abstract void initAllObjects(ArrayList<Visible> clickables);
-	
-	@Override
-	public void act() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public boolean isHovered(int x, int y) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 	
 	public MouseListener getMouseListener() {
 		return this;
 	}
+	
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void mouseClicked(MouseEvent m) {
+		for(Clickable c: clickables){
+			if(c.isHovered(m.getX(), m.getY())){
+				c.act();
+				break;
+			}
+		}
 	}
 
 	@Override

@@ -15,7 +15,7 @@ public class WhackAMole extends GUIApplication {
 	}
 	
 	public static void main(String[] args) {
-		WhackAMole wamg = new WhackAMole(800,600);
+		WhackAMole wamg = new WhackAMole(1280,1024);
 		Thread game = new Thread(wamg);
 		game.start();
 	}

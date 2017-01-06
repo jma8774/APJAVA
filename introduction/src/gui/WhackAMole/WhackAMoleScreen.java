@@ -9,37 +9,22 @@ import gui.components.Action;
 import gui.components.TextLabel;
 import gui.components.Visible;
 
-public class WhackAMoleScreen extends ClickableScreen implements Runnable, MouseListener{
+public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	
 	private ArrayList<MoleInterface> moles;
 	private PlayerInterface player;
 	private TextLabel label;
 	private TextLabel timeLabel;
 	private double timeLeft;
+
 	
 	public WhackAMoleScreen(int width, int height) {
 		super(width, height);
 		timeLeft = 30.0;
+//		when making simon, creating a Thread like this
+//		is necessary since Simon's screen changes
 		Thread play = new Thread(this);
 		play.start();
-	}
-
-	@Override
-	public int getX() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean isAnimate() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -81,7 +66,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable, Mouse
 	}
 
 	private void appearNewMole() {
-		double chance = .5*(60-timeLeft)/60;
+		double chance = .3*(60-timeLeft)/60;
 		if(Math.random() < chance) {
 			final MoleInterface mole = getAMole();
 //			mole needs to be final because we don't want this mole to change, if we change it then the computer won't understand
@@ -132,17 +117,4 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable, Mouse
 			e.printStackTrace();
 		}
 	}
-	
-	public void mouseClicked(MouseEvent e) {
-		for(int i = 0; i < moles.size(); i ++) {
-			if(moles.get(i).isHovered(e.getX(), e.getY())){
-				moles.get(i).act();
-			}
-		}
-	}
-	
-	public MouseListener getMouseListener() {
-		return this;
-	}
-
 }

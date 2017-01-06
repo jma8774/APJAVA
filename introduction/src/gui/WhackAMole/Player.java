@@ -23,7 +23,7 @@ public class Player extends Component implements PlayerInterface {
 	@Override
 	public void update(Graphics2D g) {
 		g.setColor(Color.black);
-		g.drawOval(0, 0, 99, 99);
+//		g.drawOval(0, 0, 99, 99);
 		g.drawString("Score: " + score, 30, 55);
 	}
 
