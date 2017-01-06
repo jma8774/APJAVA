@@ -1,5 +1,7 @@
 package gui.WhackAMole;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import gui.Screens.ClickableScreen;
@@ -7,7 +9,7 @@ import gui.components.Action;
 import gui.components.TextLabel;
 import gui.components.Visible;
 
-public class WhackAMoleScreen extends ClickableScreen implements Runnable{
+public class WhackAMoleScreen extends ClickableScreen implements Runnable, MouseListener{
 	
 	private ArrayList<MoleInterface> moles;
 	private PlayerInterface player;
@@ -44,8 +46,8 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	public void initAllObjects(ArrayList<Visible> clickables) {
 		moles = new ArrayList<MoleInterface>();
 		player = getAPlayer();
-		label = new TextLabel(350, 100, 100, 40, "SAMPLE");
-		timeLabel = new TextLabel(50, 50, 80, 40, "30.0");
+		label = new TextLabel(350, 100, 100, 40, "");
+		timeLabel = new TextLabel(350, 50, 80, 40, "30.0");
 		viewObjects.add(player);
 		viewObjects.add(label);
 		viewObjects.add(timeLabel);
@@ -79,7 +81,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	}
 
 	private void appearNewMole() {
-		double chance = .1*(60-timeLeft)/60;
+		double chance = .5*(60-timeLeft)/60;
 		if(Math.random() < chance) {
 			final MoleInterface mole = getAMole();
 //			mole needs to be final because we don't want this mole to change, if we change it then the computer won't understand
@@ -130,4 +132,17 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 			e.printStackTrace();
 		}
 	}
+	
+	public void mouseClicked(MouseEvent e) {
+		for(int i = 0; i < moles.size(); i ++) {
+			if(moles.get(i).isHovered(e.getX(), e.getY())){
+				moles.get(i).act();
+			}
+		}
+	}
+	
+	public MouseListener getMouseListener() {
+		return this;
+	}
+
 }

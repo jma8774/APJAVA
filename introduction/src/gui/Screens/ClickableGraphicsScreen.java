@@ -21,7 +21,7 @@ public class ClickableGraphicsScreen extends Screen implements MouseListener, Mo
 
 	@Override
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		gastlys = new ClickableGraphic[3000];
+		gastlys = new ClickableGraphic[10];
 		for(int i = 0; i < gastlys.length; i++) {
 			gastlys[i] = new ClickableGraphic((int)(Math.random() * 800), (int)(Math.random() * 600), "resources/sampleImages/gastly.png", .1);
 			gastlys[i].setAction(new Action() {
