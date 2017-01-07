@@ -17,13 +17,13 @@ public class SimonScreenJiaMing extends ClickableScreen implements Runnable {
 	private ProgressInterfaceJiaMing progress;
 	private ArrayList<MoveInterfaceJiaMing> moves;
 	private int roundNum;
-	private boolean accepted;
+	private boolean acceptedInput;
 	private TextLabel label;
 	
 	public SimonScreenJiaMing(int width, int height) {
 		super(width, height);
-		roundNum = 1;
-		accepted = false;
+		progress.setRound(0);
+		acceptedInput = false;
 		Thread play = new Thread(this);
 		play.start();
 	}
@@ -53,6 +53,7 @@ public class SimonScreenJiaMing extends ClickableScreen implements Runnable {
 	public void run() {
 		progress.increaseRound(1);
 		progress.setSequenceLength(moves.size());
-		progress.updateProgress();
+		updateLabel();
+		
 	}
 }

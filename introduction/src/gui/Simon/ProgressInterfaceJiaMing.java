@@ -10,5 +10,5 @@ public interface ProgressInterfaceJiaMing extends Visible {
 
 	void setSequenceLength(int size);
 
-	void updateProgress();
+	void setRound(int i);
 }

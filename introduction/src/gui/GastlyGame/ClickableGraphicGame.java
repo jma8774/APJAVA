@@ -1,7 +1,6 @@
-package gui.SampleGame;
+package gui.GastlyGame;
 
 import gui.GUIApplication;
-import gui.Screens.ClickableGraphicsScreen;
 import gui.Screens.CoordinateScreen;
 
 public class ClickableGraphicGame extends GUIApplication implements Runnable {

@@ -1,4 +1,4 @@
-package gui.Screens;
+package gui.GastlyGame;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -9,11 +9,13 @@ import gui.Screen;
 import gui.components.Action;
 import gui.components.ClickableGraphic;
 import gui.components.Graphic;
+import gui.components.TextMultiLines;
 import gui.components.Visible;
 
 public class ClickableGraphicsScreen extends Screen implements MouseListener, MouseMotionListener{
 	
 	private ClickableGraphic[] gastlys;
+	private TextMultiLines test;
 	
 	public ClickableGraphicsScreen(int width, int height) {
 		super(width, height);
@@ -35,6 +37,11 @@ public class ClickableGraphicsScreen extends Screen implements MouseListener, Mo
 			});
 			viewObjects.add(gastlys[i]);
 		}
+		test = new TextMultiLines(40, 40, 150, 100);
+		test.addText("Round 5");
+		test.addText("Sequence Number 8");
+		viewObjects.add(test);
+		
 	}
 	
 	public MouseListener getMouseListener() {

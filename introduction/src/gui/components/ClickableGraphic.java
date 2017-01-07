@@ -2,7 +2,7 @@ package gui.components;
 
 import java.util.ArrayList;
 
-import gui.SampleGame.ClickableGraphicGame;
+import gui.GastlyGame.ClickableGraphicGame;
 
 public class ClickableGraphic extends Graphic implements Clickable{
 
