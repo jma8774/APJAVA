@@ -7,27 +7,45 @@ import java.awt.RenderingHints;
 import java.util.ArrayList;
 
 public class TextMultiLines extends Component {
+	/**
+	 * This is a class that I made for my own use
+	 * It takes Strings from ArrayList stringList and draws it
+	 * Each string/item from the ArrayList gets its own line
+	 * There is also an option to center all the text or to not center all the text
+	 * 
+	 * EX: ArrayList text {"Hello", "World"};
+	 * calling update() with boolean centered = true will draw something like this:
+	 *  ___________
+	 * |   Hello   |
+	 * |   World   | <---- centered
+	 * |___________|
+	 */
 	
-	private ArrayList<String> text;
+	private ArrayList<String> stringList;
 	private boolean centered;
 	
 	public TextMultiLines(int x, int y, int w, int h) {
 		super(x, y, w, h);
-		text = new ArrayList<String>();
+		stringList = new ArrayList<String>();
 		centered = true;
 	}
 	
-	public ArrayList<String> getText() {
-		return text;
+	public ArrayList<String> getStringList() {
+		return stringList;
 	}
 
-	public void setText(ArrayList<String> text) {
-		this.text = text;
+	public void setStringList(ArrayList<String> stringList) {
+		this.stringList = stringList;
 		update();
 	}
 	
-	public void addText(String text) {
-		this.text.add(text);
+	public void addString(String string) {
+		this.stringList.add(string);
+		update();
+	}
+	
+	public void remove(int i) {
+		if(stringList.size() > 0) stringList.remove(i);
 		update();
 	}
 	
@@ -38,7 +56,7 @@ public class TextMultiLines extends Component {
 	public void setCentered(boolean centered) {
 		this.centered = centered;
 	}
-
+	
 	@Override
 	public void update(Graphics2D g) {
 //		clear
@@ -55,10 +73,10 @@ public class TextMultiLines extends Component {
 //		draw text
 		FontMetrics fm = g.getFontMetrics();
 		int x = 0;
-		if(text != null) {
-			for(int i = 0; i < text.size(); i ++) {
-				if(centered) x = (getWidth()-fm.stringWidth(text.get(i))) / 2;
-				g.drawString(text.get(i), x, (fm.getAscent() + fm.getDescent()) * (i+1));
+		if(stringList != null && stringList.size() > 0) {
+			for(int i = 0; i < stringList.size(); i ++) {
+				if(centered) x = (getWidth()-fm.stringWidth(stringList.get(i))) / 2;
+				g.drawString(stringList.get(i), x, (fm.getAscent() + fm.getDescent()) * (i+1));
 			}
 		}
 	}

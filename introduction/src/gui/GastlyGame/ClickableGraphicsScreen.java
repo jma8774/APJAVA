@@ -38,8 +38,8 @@ public class ClickableGraphicsScreen extends Screen implements MouseListener, Mo
 			viewObjects.add(gastlys[i]);
 		}
 		test = new TextMultiLines(40, 40, 150, 100);
-		test.addText("Round 5");
-		test.addText("Sequence Number 8");
+		test.addString("Round 5");
+		test.addString("Sequence Number 8");
 		viewObjects.add(test);
 		
 	}
@@ -57,6 +57,7 @@ public class ClickableGraphicsScreen extends Screen implements MouseListener, Mo
 		for(int i = 0; i < gastlys.length; i++) {
 			if(gastlys[i].isHovered(e.getX(), e.getY())){
 				gastlys[i].act();
+				test.remove(0);
 			}
 		}
 	}

@@ -4,11 +4,17 @@ import gui.components.Visible;
 
 public interface ProgressInterfaceJiaMing extends Visible {
 
-	void increaseRound(int i);
+	/**
+	 * need fields round num and sequence length
+	 * initialize round num to 0 and sequence length to anything
+	 */
+	void increaseRoundNum(int i);
 
 	String getRoundNum();
 
-	void setSequenceLength(int size);
+	void setRoundNum(int i);
 
-	void setRound(int i);
+	String getSequenceLength();
+	
+	void setSequenceLength(int size);
 }
