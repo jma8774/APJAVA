@@ -57,7 +57,6 @@ public class ClickableGraphicsScreen extends Screen implements MouseListener, Mo
 		for(int i = 0; i < gastlys.length; i++) {
 			if(gastlys[i].isHovered(e.getX(), e.getY())){
 				gastlys[i].act();
-				test.remove(0);
 			}
 		}
 	}
