@@ -1,5 +1,6 @@
 package gui.GastlyGame;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -37,7 +38,7 @@ public class ClickableGraphicsScreen extends Screen implements MouseListener, Mo
 			});
 			viewObjects.add(gastlys[i]);
 		}
-		test = new TextMultiLines(40, 40, 150, 100);
+		test = new TextMultiLines(40, 40, 150, 100, Color.GREEN);
 		test.addString("Round 5");
 		test.addString("Sequence Number 8");
 		viewObjects.add(test);
