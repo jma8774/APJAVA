@@ -12,7 +12,8 @@ public class TextMultiLines extends Component {
 	 * It takes Strings from ArrayList stringList and draws it
 	 * Each string/item from the ArrayList gets its own line
 	 * There is also an option to center all the text or to not center all the text
-	 * 
+	 * There's also an option to change the color of the background 
+	 *
 	 * EX: ArrayList text {"Hello", "World"};
 	 * calling update() with boolean centered = true will draw something like this:
 	 *  ___________
