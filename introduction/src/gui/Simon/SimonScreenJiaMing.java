@@ -97,7 +97,7 @@ public class SimonScreenJiaMing extends ClickableScreen implements Runnable {
 								nextRound.start(); 
 							}
 						} else {
-							progress.gameOver();
+							gameOver();
 						}
 					}
 				}
@@ -107,6 +107,11 @@ public class SimonScreenJiaMing extends ClickableScreen implements Runnable {
 		}
 	}
 
+	private void gameOver() {
+		label.addString("WRONG YOU LOSE!");
+		acceptingInput = false;
+	}
+	
 	private void nextRound() {
 		acceptingInput = false;
 		moves.add(randomButton());
