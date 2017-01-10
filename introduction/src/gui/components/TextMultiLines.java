@@ -21,13 +21,19 @@ public class TextMultiLines extends Component {
 	 * |___________|
 	 */
 	
+	private Color color;
 	private ArrayList<String> stringList;
 	private boolean centered;
 	
-	public TextMultiLines(int x, int y, int w, int h) {
+	public TextMultiLines(int x, int y, int w, int h, Color bgColor) {
 		super(x, y, w, h);
 		stringList = new ArrayList<String>();
 		centered = true;
+		this.color = bgColor;
+	}
+	
+	public void setColor(Color color) {
+		this.color = color;
 	}
 	
 	public ArrayList<String> getStringList() {
@@ -64,8 +70,7 @@ public class TextMultiLines extends Component {
 		
 //		draw label
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-		Color limeGreen = new Color(125, 255, 100);
-		g.setColor(limeGreen);
+		g.setColor(color);
 		g.fillRect(0, 0, getWidth(), getHeight());
 		g.setColor(Color.BLACK);
 		g.drawRect(0, 0, getWidth()-1, getHeight()-1);

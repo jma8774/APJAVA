@@ -10,11 +10,13 @@ public interface ProgressInterfaceJiaMing extends Visible {
 	 */
 	void increaseRoundNum(int i);
 
-	String getRoundNum();
+	int getRoundNum();
 
 	void setRoundNum(int i);
 
-	String getSequenceLength();
+	int getSequenceLength();
 	
 	void setSequenceLength(int size);
+
+	void gameOver();
 }
