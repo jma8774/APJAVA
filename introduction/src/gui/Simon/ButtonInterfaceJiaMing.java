@@ -18,4 +18,6 @@ public interface ButtonInterfaceJiaMing extends Clickable{
 	void highlight();
 
 	void dim();
+
+	Color getColor();
 }

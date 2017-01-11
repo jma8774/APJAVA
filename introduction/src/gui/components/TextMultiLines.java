@@ -22,19 +22,27 @@ public class TextMultiLines extends Component {
 	 * |___________|
 	 */
 	
-	private Color color;
+	private Color bgC;
+	private Color fontC;
 	private ArrayList<String> stringList;
 	private boolean centered;
 	
-	public TextMultiLines(int x, int y, int w, int h, Color bgColor) {
+	public TextMultiLines(int x, int y, int w, int h, Color bgC, Color fontC) {
 		super(x, y, w, h);
 		stringList = new ArrayList<String>();
 		centered = true;
-		this.color = bgColor;
+		this.bgC = bgC;
+		this.fontC = fontC;
 	}
 	
-	public void setColor(Color color) {
-		this.color = color;
+	public void setBGColor(Color color) {
+		bgC = color;
+		update();
+	}
+	
+	public void setFontColor(Color color) {
+		fontC = color;
+		update();
 	}
 	
 	public ArrayList<String> getStringList() {
@@ -62,18 +70,18 @@ public class TextMultiLines extends Component {
 
 	public void setCentered(boolean centered) {
 		this.centered = centered;
+		update();
 	}
 	
 	@Override
 	public void update(Graphics2D g) {
-//		clear
 		g = clear();
 		
 //		draw label
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-		g.setColor(color);
+		g.setColor(bgC);
 		g.fillRect(0, 0, getWidth(), getHeight());
-		g.setColor(Color.BLACK);
+		g.setColor(fontC);
 		g.drawRect(0, 0, getWidth()-1, getHeight()-1);
 		
 //		draw text

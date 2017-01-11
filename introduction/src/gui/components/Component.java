@@ -40,7 +40,22 @@ public abstract class Component implements Visible {
 	public int getHeight() {
 		return h;
 	}
-
+	
+	public void setX(int i) {
+		x = i;
+	}
+	
+	public void setY(int i) {
+		y = i;
+	}
+	
+	public void setWidth(int i) {
+		w = i;
+	}
+	
+	public void setHeight(int i) {
+		h = i;
+	}
 	public boolean isAnimate() {
 		return false;
 	}

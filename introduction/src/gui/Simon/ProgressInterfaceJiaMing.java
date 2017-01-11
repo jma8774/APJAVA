@@ -2,7 +2,7 @@ package gui.Simon;
 
 import gui.components.Visible;
 
-public interface ProgressInterfaceJiaMing extends Visible {
+public interface ProgressInterfaceJiaMing {
 
 	/**
 	 * need fields round num and sequence length
@@ -17,6 +17,4 @@ public interface ProgressInterfaceJiaMing extends Visible {
 	int getSequenceLength();
 	
 	void setSequenceLength(int size);
-
-	void gameOver();
 }
