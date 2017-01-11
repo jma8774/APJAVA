@@ -10,6 +10,7 @@ import gui.Screen;
 import gui.components.Action;
 import gui.components.ClickableGraphic;
 import gui.components.Graphic;
+import gui.components.MovingComponent;
 import gui.components.TextMultiLines;
 import gui.components.Visible;
 
@@ -42,6 +43,11 @@ public class ClickableGraphicsScreen extends Screen implements MouseListener, Mo
 		test.addString("Round 5");
 		test.addString("Sequence Number 8");
 		viewObjects.add(test);
+		MovingComponent c = new MovingComponent(20, 20, 100, 100);
+		viewObjects.add(c);
+		c.setVx(3);
+		c.setVy(5);
+		c.play();
 		
 	}
 	
