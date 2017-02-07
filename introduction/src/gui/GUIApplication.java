@@ -31,6 +31,7 @@ public abstract class GUIApplication extends JFrame implements Runnable {
 		g.drawImage(currentScreen.getImage(), 0, 0, null);
 	}
 	
+//	listeners change when your screen changes
 	public void setScreen(Screen s) {
 		if(currentScreen != null) {
 			MouseListener ml = currentScreen.getMouseListener();
