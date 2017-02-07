@@ -132,8 +132,8 @@ public class SimonScreenJiaMing extends ClickableScreen implements Runnable {
 			b = moves.get(i).getButton();
 			b.highlight();
 			try {
-				Thread.sleep((long) (2500 / Math.sqrt(progress.getRoundNum())));
-//				Thread.sleep(500);
+//				Thread.sleep((long) (2500 / Math.sqrt(progress.getRoundNum())));
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
